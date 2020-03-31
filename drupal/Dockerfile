@@ -27,8 +27,7 @@ RUN set -ex; \
             --with-png-dir=/usr/include/ \
             --with-jpeg-dir=/usr/include/; \
     fi; \
-    NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1); \
-    docker-php-ext-install -j${NPROC} gd; \
+    docker-php-ext-install gd; \
     # Install Drush launcher
     wget -O /tmp/drush.phar https://github.com/drush-ops/drush-launcher/releases/download/${DRUSH_LAUNCHER_VERSION}/drush.phar; \
     chmod +x /tmp/drush.phar; \
