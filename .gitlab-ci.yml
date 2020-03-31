@@ -17,7 +17,7 @@ stages:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
   before_script:
-    - echo "{\"auths\":{\"${DOCKERHUB_REGISTRY}\":{\"username\":\"${DOCKERHUB_USER}\",\"password\":\"${DOCKERHUB_REGISTRY}\"}}}" > /kaniko/.docker/config.json
+    - echo "{\"auths\":{\"${DOCKERHUB_REGISTRY}\":{\"username\":\"${DOCKERHUB_USER}\",\"password\":\"${DOCKERHUB_PASSWORD}\"}}}" > /kaniko/.docker/config.json
 
 .build-base: &build-base
   <<: *build
