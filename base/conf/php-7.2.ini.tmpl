@@ -1,0 +1,69 @@
+[PHP]
+display_errors = $PHP_DISPLAY_ERRORS
+display_startup_errors = $PHP_DISPLAY_STARTUP_ERRORS
+expose_php = $PHP_EXPOSE
+max_execution_time = $PHP_MAX_EXECUTION_TIME
+max_input_time = $PHP_MAX_INPUT_TIME
+max_input_vars = $PHP_MAX_INPUT_VARS
+post_max_size = $PHP_POST_MAX_SIZE
+upload_max_filesize = $PHP_UPLOAD_MAX_FILESIZE
+max_file_uploads = $PHP_MAX_FILE_UPLOADS
+allow_url_fopen = $PHP_ALLOW_URL_FOPEN
+allow_url_include = 0
+default_socket_timeout = $PHP_DEFAULT_SOCKET_TIMEOUT
+output_buffering = $PHP_OUTPUT_BUFFERING
+
+realpath_cache_size = $PHP_REALPATH_CACHE_SIZE
+realpath_cache_ttl = $PHP_REALPATH_CACHE_TTL
+memory_limit = $PHP_MEMORY_LIMIT
+error_reporting = $PHP_ERROR_REPORTING
+log_errors = $PHP_LOG_ERRORS
+log_errors_max_len = $PHP_LOG_ERRORS_MAX_LEN
+error_log = /proc/self/fd/2 
+auto_prepend_file =
+auto_append_file =
+disable_functions = $PHP_DISABLE_FUNCTIONS
+
+[Date]
+date.timezone = $PHP_DATE_TIMEZONE
+
+[Phar]
+phar.readonly = 1
+phar.require_hash = 1
+phar.cache_list =
+
+[Mail]
+sendmail_path = $PHP_SENDMAIL_PATH
+
+[Session]
+session.save_handler = $PHP_SESSION_SAVE_HANDLER
+session.save_path = $PHP_SESSION_SAVE_PATH
+session.use_strict_mode = 1
+session.use_cookies = 1
+session.use_only_cookies = 1
+session.cookie_secure = $PHP_SESSION_COOKIE_SECURE
+session.name = $PHP_SESSION_NAME
+session.auto_start = $PHP_SESSION_AUTO_START
+session.cookie_lifetime = 0
+session.cookie_path = $PHP_SESSION_COOKIE_PATH
+session.cookie_domain = $PHP_SESSION_COOKIE_DOMAIN
+session.cookie_httponly = 1
+session.serialize_handler = $PHP_SESSION_SERIALIZE_HANDLER
+session.gc_probability = $PHP_SESSION_GC_PROBABILITY
+session.gc_divisor = $PHP_SESSION_GC_DIVISOR
+session.gc_maxlifetime = $PHP_SESSION_GC_MAXLIFETIME
+session.referer_check = $PHP_SESSION_REFERER_CHECK
+session.cache_limiter = nocache
+session.cache_expire = $PHP_SESSION_CACHE_EXPIRE
+session.use_trans_sid = 0
+session.sid_length = 48
+session.sid_bits_per_character = 6
+session.lazy_write = 1
+
+[Assertion]
+zend.assertions = $PHP_ZEND_ASSERTIONS
+assert.active = $PHP_ASSERT_ACTIVE
+
+[OpenSSL]
+openssl.cafile = $PHP_OPENSSL_CAFILE
+openssl.capath = $PHP_OPENSSL_CAPATH
