@@ -3,6 +3,8 @@
 PHP-FPM docker container image that requires no specific user or root permission to function.
 It's compatible with OpenShift and Kubernetes.
 
+Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r/aerzas/php)
+
 ## Docker compose example
 
 ```yaml
