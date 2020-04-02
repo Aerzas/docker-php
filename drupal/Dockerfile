@@ -6,6 +6,7 @@ USER root
 
 ARG DRUSH_LAUNCHER_VERSION
 ARG BUILD_DEV='false'
+ARG BUILD_PHP_VERSION
 
 RUN set -ex; \
     # Dependencies
@@ -16,7 +17,7 @@ RUN set -ex; \
         apk add --no-cache mariadb-client rsync; \
     fi; \
     # Install GD
-    if [ "${PHP_VERSION: :3}" = '7.4' ]; then \
+    if [ "${BUILD_PHP_VERSION}" = '7.4' ]; then \
         docker-php-ext-configure gd \
             --with-freetype \
             --with-jpeg; \
@@ -27,7 +28,8 @@ RUN set -ex; \
             --with-png-dir=/usr/include/ \
             --with-jpeg-dir=/usr/include/; \
     fi; \
-    docker-php-ext-install gd; \
+    NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1); \
+    docker-php-ext-install -j${NPROC} gd; \
     # Install Drush launcher
     wget -O /tmp/drush.phar https://github.com/drush-ops/drush-launcher/releases/download/${DRUSH_LAUNCHER_VERSION}/drush.phar; \
     chmod +x /tmp/drush.phar; \

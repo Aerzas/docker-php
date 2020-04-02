@@ -35,13 +35,13 @@ stages:
   <<: *build
   stage: build-drupal
   script:
-    - /kaniko/executor --build-arg BUILD_PHP_IMAGE --build-arg DRUSH_LAUNCHER_VERSION --context ${CI_PROJECT_DIR}/drupal --destination ${DOCKERHUB_IMAGE_PATH}:${BUILD_PHP_VERSION}-${CI_COMMIT_TAG}-drupal --dockerfile ${CI_PROJECT_DIR}/drupal/Dockerfile
+    - /kaniko/executor --build-arg BUILD_PHP_IMAGE --build-arg BUILD_PHP_VERSION --build-arg DRUSH_LAUNCHER_VERSION --context ${CI_PROJECT_DIR}/drupal --destination ${DOCKERHUB_IMAGE_PATH}:${BUILD_PHP_VERSION}-${CI_COMMIT_TAG}-drupal --dockerfile ${CI_PROJECT_DIR}/drupal/Dockerfile
 
 .build-drupal-dev: &build-drupal-dev
   <<: *build
   stage: build-drupal
   script:
-    - /kaniko/executor --build-arg BUILD_PHP_IMAGE --build-arg DRUSH_LAUNCHER_VERSION --build-arg BUILD_DEV=true --context ${CI_PROJECT_DIR}/drupal --destination ${DOCKERHUB_IMAGE_PATH}:${BUILD_PHP_VERSION}-${CI_COMMIT_TAG}-drupal-dev --dockerfile ${CI_PROJECT_DIR}/drupal/Dockerfile
+    - /kaniko/executor --build-arg BUILD_PHP_IMAGE --build-arg BUILD_PHP_VERSION --build-arg DRUSH_LAUNCHER_VERSION --build-arg BUILD_DEV=true --context ${CI_PROJECT_DIR}/drupal --destination ${DOCKERHUB_IMAGE_PATH}:${BUILD_PHP_VERSION}-${CI_COMMIT_TAG}-drupal-dev --dockerfile ${CI_PROJECT_DIR}/drupal/Dockerfile
 
 build:7.2:
   <<: *build-base
