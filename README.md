@@ -10,12 +10,18 @@ Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r
 ```yaml
 version: '3.5'
 services:
-  php:
-    image: aerzas/php:1.0.0
-    environment:
-      PHP_MEMORY_LIMIT: 256M
-    ports:
-      - '9000:9000'
+    php:
+        image: aerzas/php:1.0.0
+        environment:
+            PHP_MEMORY_LIMIT: 256M
+        ports:
+            - '9000:9000'
+        healthcheck:
+            test: ["CMD", "/scripts/docker-healthcheck.sh"]
+            interval: 30s
+            timeout: 1s
+            retries: 3
+            start_period: 5s
 ```
 
 Additional PHP configuration files can be mounted in `/usr/local/etc/php/conf.d/`, files mounted as `.tmpl` will have
