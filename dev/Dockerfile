@@ -4,8 +4,6 @@ FROM ${BUILD_PHP_IMAGE}
 
 USER root
 
-ENV PHP_INI_DIR="/usr/local/etc/php"
-
 RUN set -ex; \
     # Composer
     mkdir -p /.composer; \

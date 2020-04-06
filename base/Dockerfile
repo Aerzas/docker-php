@@ -4,7 +4,6 @@ FROM ${BUILD_PHP_IMAGE}
 
 ENV APP_ROOT="/var/www/html" \
     HOME="/etc/home" \
-    PHP_INI_DIR="/usr/local/etc/php" \
     PHP_FPM_CONF_DIR="/usr/local/etc/php-fpm.d"
 
 RUN set -ex; \

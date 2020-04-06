@@ -6,7 +6,6 @@ USER root
 
 ARG DRUSH_LAUNCHER_VERSION
 ARG BUILD_DEV='false'
-ARG BUILD_PHP_VERSION
 
 RUN set -ex; \
     # Dependencies
@@ -17,7 +16,7 @@ RUN set -ex; \
         apk add --no-cache mariadb-client rsync; \
     fi; \
     # Install GD
-    if [ "${BUILD_PHP_VERSION}" = '7.4' ]; then \
+    if [ "${PHP_VERSION: :3}" = '7.4' ]; then \
         docker-php-ext-configure gd \
             --with-freetype \
             --with-jpeg; \

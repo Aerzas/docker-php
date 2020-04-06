@@ -9,6 +9,6 @@ ping=$(SCRIPT_NAME=${PHP_FPM_PING_PATH} \
 
 if [ ! -z ${ping} ] && [ ${ping} = 'PONG' ]; then
 	exit 0;
-fi
+fi;
 
 exit 1;
