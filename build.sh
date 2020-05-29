@@ -8,12 +8,12 @@ if [ -z "${build_version}" ]; then
   exit 1;
 fi;
 
-registry_image='aerzas/php';
+registry_image='faering/php';
 drush_launcher_version=0.6.0;
 declare -A php_versions=(
-  [7.2]=php:7.2.29-fpm-alpine3.11
-  [7.3]=php:7.3.16-fpm-alpine3.11
-  [7.4]=php:7.4.4-fpm-alpine3.11
+  [7.2]=php:7.2.31-fpm-alpine3.11
+  [7.3]=php:7.3.18-fpm-alpine3.11
+  [7.4]=php:7.4.6-fpm-alpine3.11
 );
 
 build_base()

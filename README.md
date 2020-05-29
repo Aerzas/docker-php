@@ -1,9 +1,8 @@
 # PHP
 
 PHP-FPM docker container image that requires no specific user or root permission to function.
-It's compatible with OpenShift and Kubernetes.
 
-Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r/aerzas/php)
+Docker Hub image: [https://hub.docker.com/r/faering/php](https://hub.docker.com/r/faering/php)
 
 ## Docker compose example
 
@@ -11,7 +10,7 @@ Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r
 version: '3.5'
 services:
     php:
-        image: aerzas/php:7.4-1.0.0
+        image: faering/php:7.4-1.0.0
         environment:
             PHP_MEMORY_LIMIT: 256M
         ports:
