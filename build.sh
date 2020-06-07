@@ -117,7 +117,7 @@ build_php() {
 }
 
 # Build single PHP version
-if [ ! -z "${build_php_version}" ]; then
+if [ -n "${build_php_version}" ]; then
   build_php "${build_php_version}"
 # Build all PHP versions
 else
