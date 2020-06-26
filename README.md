@@ -2,7 +2,7 @@
 
 PHP-FPM docker container image that requires no specific user or root permission to function.
 
-Docker Hub image: [https://hub.docker.com/r/faering/php](https://hub.docker.com/r/faering/php)
+Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r/aerzas/php)
 
 ## Docker compose example
 
@@ -10,7 +10,7 @@ Docker Hub image: [https://hub.docker.com/r/faering/php](https://hub.docker.com/
 version: '3.5'
 services:
     php:
-        image: faering/php:7.4-1.0.1
+        image: aerzas/php:7.4-1.0.1
         environment:
             PHP_MEMORY_LIMIT: 256M
         ports:

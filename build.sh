@@ -8,7 +8,7 @@ if [ -z "${build_version}" ]; then
   exit 1
 fi
 
-registry_image='faering/php'
+registry_image='aerzas/php'
 drush_launcher_version=0.6.0
 
 php_base_tag() {
