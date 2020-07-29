@@ -10,7 +10,7 @@ Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r
 version: '3.5'
 services:
     php:
-        image: aerzas/php:7.4-1.0.2
+        image: aerzas/php:7.4-1.0.3
         environment:
             PHP_MEMORY_LIMIT: 256M
         ports:
@@ -92,16 +92,18 @@ their environment variables automatically replaced.
 | `COMPOSER_CACHE_DIR` | | `/tmp`
 | `COMPOSER_MEMORY_LIMIT` | | `256M`
 | **Xdebug (dev only)**
-| `PHP_XDEBUG_ENABLE` | | `1`
+| `PHP_XDEBUG_ENABLE` | | `0`
 | `PHP_XDEBUG_COVERAGE_ENABLE` | | `0`
-| `PHP_XDEBUG_FILE_LINK_FORMAT` |
-| `PHP_XDEBUG_IDEKEY` |
+| `PHP_XDEBUG_FILE_LINK_FORMAT` | | `"phpstorm://open?file=%f&line=%l"`
+| `PHP_XDEBUG_IDEKEY` | | `PHPSTORM`
 | `PHP_XDEBUG_MAX_NESTING_LEVEL` | | `256`
 | `PHP_XDEBUG_PROFILER_ENABLE` | | `0`
 | `PHP_XDEBUG_PROFILER_ENABLE_TRIGGER` | | `1`
-| `PHP_XDEBUG_REMOTE_ENABLE` | | `0`
-| `PHP_XDEBUG_REMOTE_CONNECT_BACK` | | `0`
+| `PHP_XDEBUG_REMOTE_AUTOSTART` | | `0`
+| `PHP_XDEBUG_REMOTE_CONNECT_BACK` | | `1`
+| `PHP_XDEBUG_REMOTE_ENABLE` | | `1`
 | `PHP_XDEBUG_REMOTE_HOST` | | `localhost`
+| `PHP_XDEBUG_REMOTE_LOG` | | `0`
 | `PHP_XDEBUG_REMOTE_PORT` | | `9000`
 | `PHP_XDEBUG_TRACE_ENABLE` | | `0`
 | `PHP_XDEBUG_TRACE_ENABLE_TRIGGER` | | `1`
