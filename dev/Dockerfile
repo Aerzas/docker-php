@@ -8,8 +8,8 @@ RUN set -ex; \
     # Composer
     mkdir -p /.composer; \
     wget -qO- https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
-    # Git and OpenSSH client
-    apk add --no-cache git openssh-client; \
+    # Git, OpenSSH client and patch
+    apk add --no-cache git openssh-client patch; \
     echo -e "Host *\n  StrictHostKeyChecking accept-new" > /etc/ssh/ssh_config; \
     # Xdebug
     apk add --no-cache --virtual .build autoconf g++ make; \
