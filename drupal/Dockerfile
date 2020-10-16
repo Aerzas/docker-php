@@ -33,13 +33,6 @@ RUN set -ex; \
     wget -O /tmp/drush.phar https://github.com/drush-ops/drush-launcher/releases/download/${DRUSH_LAUNCHER_VERSION}/drush.phar; \
     chmod +x /tmp/drush.phar; \
     mv /tmp/drush.phar /usr/local/bin/drush; \
-    # Install Drupal console
-    wget -O /tmp/drupal.phar https://drupalconsole.com/installer; \
-    chmod +x /tmp/drupal.phar; \
-    mv /tmp/drupal.phar /usr/local/bin/drupal; \
-    # Prepare folder for Drupal Console
-    mkdir -p -m 777 /etc/console /.console; \
-    chgrp -R 0 /etc/console /.console; \
     # Remove build dependencies
     apk del .build
 
