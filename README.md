@@ -10,7 +10,7 @@ Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r
 version: '3.5'
 services:
     php:
-        image: aerzas/php:7.4-1.0.3
+        image: aerzas/php:7.4-1.1.0
         environment:
             PHP_MEMORY_LIMIT: 256M
         ports:
@@ -93,6 +93,7 @@ their environment variables automatically replaced.
 | `COMPOSER_MEMORY_LIMIT` | | `256M`
 | **Xdebug (dev only)**
 | `PHP_XDEBUG_ENABLE` | | `0`
+| `PHP_XDEBUG_DEFAULT_ENABLE` | | `1`
 | `PHP_XDEBUG_COVERAGE_ENABLE` | | `0`
 | `PHP_XDEBUG_FILE_LINK_FORMAT` | | `"phpstorm://open?file=%f&line=%l"`
 | `PHP_XDEBUG_IDEKEY` | | `PHPSTORM`
