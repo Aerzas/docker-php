@@ -9,7 +9,7 @@ if [ -z "${build_version}" ]; then
 fi
 
 registry_image='aerzas/php'
-drush_launcher_version=0.6.0
+drush_launcher_version=0.8.0
 
 php_base_tag() {
   php_version="${1}"
@@ -20,13 +20,13 @@ php_base_tag() {
 
   case ${php_version} in
   7.2)
-    echo php:7.2.32-fpm-alpine3.12
+    echo php:7.2.34-fpm-alpine3.12
     ;;
   7.3)
-    echo php:7.3.20-fpm-alpine3.12
+    echo php:7.3.24-fpm-alpine3.12
     ;;
   7.4)
-    echo php:7.4.8-fpm-alpine3.12
+    echo php:7.4.12-fpm-alpine3.12
     ;;
   *)
     return 0
