@@ -10,7 +10,7 @@ Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r
 version: '3.5'
 services:
     php:
-        image: aerzas/php:7.4-1.2.0
+        image: aerzas/php:7.4-1.2.1
         environment:
             PHP_MEMORY_LIMIT: 256M
         ports:
