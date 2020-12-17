@@ -24,10 +24,10 @@ php_base_tag() {
     echo php:7.2.34-fpm-alpine3.12
     ;;
   7.3)
-    echo php:7.3.24-fpm-alpine3.12
+    echo php:7.3.25-fpm-alpine3.12
     ;;
   7.4)
-    echo php:7.4.12-fpm-alpine3.12
+    echo php:7.4.13-fpm-alpine3.12
     ;;
   *)
     return 0
