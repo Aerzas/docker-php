@@ -9,6 +9,7 @@ if [ -z "${build_version}" ]; then
 fi
 
 registry_image='aerzas/php'
+composer_version=2.0.8
 drush_launcher_version=0.8.0
 
 php_base_tag() {
@@ -52,6 +53,7 @@ build_dev() {
 
   docker build \
     --build-arg BUILD_PHP_IMAGE="${registry_image}:${php_version}-${build_version}" \
+    --build-arg COMPOSER_VERSION="${composer_version}" \
     -t "${registry_image}:${php_version}-${build_version}-dev" \
     -f dev/Dockerfile \
     ./dev \

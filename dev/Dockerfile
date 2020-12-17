@@ -4,12 +4,14 @@ FROM ${BUILD_PHP_IMAGE}
 
 USER root
 
+ARG COMPOSER_VERSION
+
 ENV PHP_XDEBUG_LOG_DIR=/var/log/xdebug
 
 RUN set -ex; \
     # Composer
     mkdir -p /.composer; \
-    wget -qO- https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
+    wget -qO- https://getcomposer.org/installer | php -- --version="${COMPOSER_VERSION}" --install-dir=/usr/local/bin --filename=composer; \
     # Git, OpenSSH client and patch
     apk add --no-cache git openssh-client patch; \
     echo -e "Host *\n  StrictHostKeyChecking accept-new" > /etc/ssh/ssh_config; \
