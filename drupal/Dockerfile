@@ -10,12 +10,12 @@ ARG BUILD_DEV='false'
 RUN set -ex; \
     # Dependencies
     apk add --no-cache --virtual .build freetype-dev libpng-dev libjpeg-turbo-dev; \
-    apk add --no-cache freetype libpng libjpeg-turbo libxml2-dev; \
+    apk add --no-cache freetype libpng libjpeg-turbo libxml2-dev libzip-dev zip; \
     # Dev dependencies
     if [ "${BUILD_DEV}" = 'true' ]; then \
         apk add --no-cache mariadb-client rsync; \
     fi; \
-    # Install BCMath, GD and SOAP
+    # Install BCMath, GD, SOAP, and ZIP
     if [ "${PHP_VERSION: :3}" = '7.4' ]; then \
         docker-php-ext-configure gd \
             --with-freetype \
@@ -28,7 +28,7 @@ RUN set -ex; \
             --with-jpeg-dir=/usr/include/; \
     fi; \
     NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1); \
-    docker-php-ext-install -j${NPROC} bcmath gd soap; \
+    docker-php-ext-install -j${NPROC} bcmath gd soap zip; \
     # Install Drush launcher
     wget -O /tmp/drush.phar https://github.com/drush-ops/drush-launcher/releases/download/${DRUSH_LAUNCHER_VERSION}/drush.phar; \
     chmod +x /tmp/drush.phar; \
