@@ -9,7 +9,7 @@ if [ -z "${build_version}" ]; then
 fi
 
 registry_image='aerzas/php'
-composer_version=2.0.8
+composer_version=2.0.11
 drush_launcher_version=0.8.0
 
 php_base_tag() {
