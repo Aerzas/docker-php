@@ -20,9 +20,6 @@ php_base_tag() {
   fi
 
   case ${php_version} in
-  7.2)
-    echo php:7.2.34-fpm-alpine3.12
-    ;;
   7.3)
     echo php:7.3.25-fpm-alpine3.12
     ;;
@@ -123,7 +120,6 @@ if [ -n "${build_php_version}" ]; then
   build_php "${build_php_version}"
 # Build all PHP versions
 else
-  build_php 7.2
   build_php 7.3
   build_php 7.4
 fi
