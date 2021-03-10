@@ -10,7 +10,7 @@ fi
 
 registry_image='aerzas/php'
 composer_version=2.0.11
-drush_launcher_version=0.8.0
+drush_launcher_version=0.9.0
 
 php_base_tag() {
   php_version="${1}"
