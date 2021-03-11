@@ -92,22 +92,18 @@ their environment variables automatically replaced.
 | `COMPOSER_CACHE_DIR` | | `/tmp`
 | `COMPOSER_MEMORY_LIMIT` | | `256M`
 | **Xdebug (dev only)**
-| `PHP_XDEBUG_ENABLE` | | `0`
-| `PHP_XDEBUG_DEFAULT_ENABLE` | | `1`
-| `PHP_XDEBUG_COVERAGE_ENABLE` | | `0`
+| `PHP_XDEBUG_CLIENT_DISCOVERY_HEADER` |
+| `PHP_XDEBUG_CLIENT_HOST` | | `localhost`
+| `PHP_XDEBUG_CLIENT_PORT` | | `9000`
+| `PHP_XDEBUG_DISCOVER_CLIENT_HOST` | | `true`
 | `PHP_XDEBUG_FILE_LINK_FORMAT` | | `"phpstorm://open?file=%f&line=%l"`
-| `PHP_XDEBUG_IDEKEY` | | `PHPSTORM`
+| `PHP_XDEBUG_IDEKEY` |
+| `PHP_XDEBUG_LOG_LEVEL` | | `3`
 | `PHP_XDEBUG_MAX_NESTING_LEVEL` | | `256`
-| `PHP_XDEBUG_PROFILER_ENABLE` | | `0`
-| `PHP_XDEBUG_PROFILER_ENABLE_TRIGGER` | | `1`
-| `PHP_XDEBUG_REMOTE_AUTOSTART` | | `0`
-| `PHP_XDEBUG_REMOTE_CONNECT_BACK` | | `1`
-| `PHP_XDEBUG_REMOTE_ENABLE` | | `1`
-| `PHP_XDEBUG_REMOTE_HOST` | | `localhost`
-| `PHP_XDEBUG_REMOTE_LOG` | | `0`
-| `PHP_XDEBUG_REMOTE_PORT` | | `9000`
-| `PHP_XDEBUG_TRACE_ENABLE` | | `0`
-| `PHP_XDEBUG_TRACE_ENABLE_TRIGGER` | | `1`
+| `PHP_XDEBUG_MODE` | | `off`
+| `PHP_XDEBUG_OUTPUT_DIR` | | `/tmp`
+| `PHP_XDEBUG_START_WITH_REQUEST` | | `default`
+| `PHP_XDEBUG_TRIGGER_VALUE` |
 | **User (dev only)**
 | `USER_HOME` | | `/tmp`
 | `USER_NAME` | | `docker`
