@@ -38,7 +38,6 @@ build_base() {
 
   docker build \
     --build-arg BUILD_PHP_IMAGE="${php_image}" \
-    --build-arg BUILD_PHP_VERSION="${php_version}" \
     -t "${registry_image}:${php_version}-${build_version}" \
     -f base/Dockerfile \
     ./base \

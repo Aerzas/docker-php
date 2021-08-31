@@ -90,9 +90,7 @@ ENV PHP_ALLOW_URL_FOPEN=0 \
 
 USER 1001
 
-ARG BUILD_PHP_VERSION
-
-COPY conf/php-${BUILD_PHP_VERSION}.ini.tmpl ${PHP_INI_DIR}/php.ini.tmpl
+COPY conf/php.ini.tmpl ${PHP_INI_DIR}/php.ini.tmpl
 COPY conf/conf.d/*.tmpl ${PHP_INI_DIR}/conf.d/
 COPY conf/php-fpm.d/*.tmpl ${PHP_FPM_CONF_DIR}/
 COPY scripts/*.sh /scripts/
