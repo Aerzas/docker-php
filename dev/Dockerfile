@@ -18,7 +18,7 @@ RUN set -ex; \
     pecl install xdebug; \
     docker-php-ext-enable xdebug; \
     apk del .build; \
-    # Replace this hack whith NSS wrapper once accepted
+    # Replace this hack with NSS wrapper once accepted
     # see https://bugs.alpinelinux.org/issues/6710
     chgrp 0 /etc/passwd; \
     chmod g+rwX /etc/passwd
