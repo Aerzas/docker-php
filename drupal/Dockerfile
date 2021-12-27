@@ -16,17 +16,9 @@ RUN set -ex; \
         apk add --no-cache mariadb-client rsync; \
     fi; \
     # Install BCMath, GD, SOAP, and ZIP
-    if [ "${PHP_VERSION: :3}" = '7.4' ]; then \
-        docker-php-ext-configure gd \
-            --with-freetype \
-            --with-jpeg; \
-    else \
-        docker-php-ext-configure gd \
-            --with-gd \
-            --with-freetype-dir=/usr/include/ \
-            --with-png-dir=/usr/include/ \
-            --with-jpeg-dir=/usr/include/; \
-    fi; \
+    docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg; \
     NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1); \
     docker-php-ext-install -j${NPROC} bcmath gd soap zip; \
     # Install Drush launcher

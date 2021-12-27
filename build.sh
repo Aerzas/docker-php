@@ -20,11 +20,11 @@ php_base_tag() {
   fi
 
   case ${php_version} in
-  7.3)
-    echo php:7.3.33-fpm-alpine3.15
-    ;;
   7.4)
     echo php:7.4.27-fpm-alpine3.15
+    ;;
+  8.1)
+    echo php:8.1.1-fpm-alpine3.15
     ;;
   *)
     return 0
@@ -38,6 +38,7 @@ build_base() {
 
   docker build \
     --build-arg BUILD_PHP_IMAGE="${php_image}" \
+    --build-arg BUILD_PHP_VERSION="${php_version}" \
     -t "${registry_image}:${php_version}-${build_version}" \
     -f base/Dockerfile \
     ./base \
@@ -119,6 +120,6 @@ if [ -n "${build_php_version}" ]; then
   build_php "${build_php_version}"
 # Build all PHP versions
 else
-  build_php 7.3
   build_php 7.4
+  build_php 8.1
 fi
