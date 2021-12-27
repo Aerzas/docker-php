@@ -21,10 +21,10 @@ php_base_tag() {
 
   case ${php_version} in
   7.3)
-    echo php:7.3.31-fpm-alpine3.14
+    echo php:7.3.33-fpm-alpine3.15
     ;;
   7.4)
-    echo php:7.4.24-fpm-alpine3.14
+    echo php:7.4.27-fpm-alpine3.15
     ;;
   *)
     return 0
