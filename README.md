@@ -67,7 +67,7 @@ their environment variables automatically replaced.
 | `PHP_OPCACHE_REVALIDATE_FREQ`         | `0`                                                                          | `0`                                   |
 | `PHP_OPCACHE_VALIDATE_TIMESTAMPS`     | `0`                                                                          | `1`                                   |
 | `PHP_OPCACHE_JIT`                     | `tracing`                                                                    | `tracing`                             |
-| `PHP_OPCACHE_JIT_BUFFER_SIZE`         | `32M`                                                                        | `32M`                                 |
+| `PHP_OPCACHE_JIT_BUFFER_SIZE`         | `32M`                                                                        | `0`                                   |
 | **OpenSSL**                           |                                                                              |                                       |
 | `PHP_OPENSSL_CAFILE`                  |                                                                              |                                       |
 | `PHP_OPENSSL_CAPATH`                  |                                                                              |                                       |
