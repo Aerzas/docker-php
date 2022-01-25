@@ -24,7 +24,7 @@ php_base_tag() {
     echo php:7.4.27-fpm-alpine3.15
     ;;
   8.1)
-    echo php:8.1.1-fpm-alpine3.15
+    echo php:8.1.2-fpm-alpine3.15
     ;;
   *)
     return 0
