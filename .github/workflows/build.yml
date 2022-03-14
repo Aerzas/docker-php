@@ -10,7 +10,7 @@ env:
   DRUSH_LAUNCHER_VERSION: 0.10.1
 
 jobs:
-  builds:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build ${{ matrix.php-image }} base image
+        name: Build ${{ matrix.php-version }}
         uses: docker/build-push-action@v2
         with:
           context: ./base
@@ -47,7 +47,7 @@ jobs:
           push: true
           tags: aerzas/php:${{ matrix.php-version }}-latest,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}
       -
-        name: Build ${{ matrix.php-image }} dev image
+        name: Build ${{ matrix.php-version }}-dev
         uses: docker/build-push-action@v2
         with:
           context: ./dev
@@ -58,7 +58,7 @@ jobs:
           push: true
           tags: aerzas/php:${{ matrix.php-version }}-latest-dev,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-dev
       -
-        name: Build ${{ matrix.php-image }} drupal image
+        name: Build ${{ matrix.php-version }}-drupal
         uses: docker/build-push-action@v2
         with:
           context: ./drupal
@@ -69,7 +69,7 @@ jobs:
           push: true
           tags: aerzas/php:${{ matrix.php-version }}-latest-drupal,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-drupal
       -
-        name: Build ${{ matrix.php-image }} drupal-dev image
+        name: Build ${{ matrix.php-version }}-drupal-dev
         uses: docker/build-push-action@v2
         with:
           context: ./drupal
