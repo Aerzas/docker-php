@@ -1,0 +1,82 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+env: 
+  COMPOSER_VERSION: 2.2.7
+  DRUSH_LAUNCHER_VERSION: 0.10.1
+
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - php-version: 7.4
+            php-image: php:7.4.27-fpm-alpine3.15
+          - php-version: 8.1
+            php-image: php:8.1.2-fpm-alpine3.15
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build ${{ matrix.php-image }} base image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./base
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            BUILD_PHP_IMAGE=${{ matrix.php-image }}
+            BUILD_PHP_VERSION=${{ matrix.php-version }}
+          push: true
+          tags: aerzas/php:${{ matrix.php-version }}-latest,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}
+      -
+        name: Build ${{ matrix.php-image }} dev image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./dev
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            BUILD_PHP_VERSION=${{ matrix.php-version }}
+            COMPOSER_VERSION=${{ env.COMPOSER_VERSION }}
+          push: true
+          tags: aerzas/php:${{ matrix.php-version }}-latest-dev,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-dev
+      -
+        name: Build ${{ matrix.php-image }} drupal image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./drupal
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            BUILD_PHP_VERSION=${{ matrix.php-version }}
+            DRUSH_LAUNCHER_VERSION=${{ env.DRUSH_LAUNCHER_VERSION }}
+          push: true
+          tags: aerzas/php:${{ matrix.php-version }}-latest-drupal,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-drupal
+      -
+        name: Build ${{ matrix.php-image }} drupal-dev image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./drupal
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            BUILD_PHP_VERSION=${{ matrix.php-version }}
+            DRUSH_LAUNCHER_VERSION=${{ env.DRUSH_LAUNCHER_VERSION }}
+            BUILD_DEV=true
+          push: true
+          tags: aerzas/php:${{ matrix.php-version }}-latest-drupal-dev,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-drupal-dev
