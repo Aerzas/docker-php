@@ -53,6 +53,7 @@ jobs:
           context: ./dev
           platforms: linux/amd64,linux/arm64
           build-args: |
+            BUILD_PHP_IMAGE=aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}
             BUILD_PHP_VERSION=${{ matrix.php-version }}
             COMPOSER_VERSION=${{ env.COMPOSER_VERSION }}
           push: true
@@ -64,6 +65,7 @@ jobs:
           context: ./drupal
           platforms: linux/amd64,linux/arm64
           build-args: |
+            BUILD_PHP_IMAGE=aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}
             BUILD_PHP_VERSION=${{ matrix.php-version }}
             DRUSH_LAUNCHER_VERSION=${{ env.DRUSH_LAUNCHER_VERSION }}
           push: true
@@ -75,6 +77,7 @@ jobs:
           context: ./drupal
           platforms: linux/amd64,linux/arm64
           build-args: |
+            BUILD_PHP_IMAGE=aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-dev
             BUILD_PHP_VERSION=${{ matrix.php-version }}
             DRUSH_LAUNCHER_VERSION=${{ env.DRUSH_LAUNCHER_VERSION }}
             BUILD_DEV=true
