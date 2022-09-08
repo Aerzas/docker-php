@@ -98,7 +98,7 @@ their environment variables automatically replaced.
 | `PHP_XDEBUG_CLIENT_HOST`              |                                                                              | `localhost`                           |
 | `PHP_XDEBUG_CLIENT_PORT`              |                                                                              | `9000`                                |
 | `PHP_XDEBUG_DISCOVER_CLIENT_HOST`     |                                                                              | `true`                                |
-| `PHP_XDEBUG_FILE_LINK_FORMAT`         |                                                                              | `"phpstorm://open?file=%f&line=%l"`   |
+| `PHP_XDEBUG_FILE_LINK_FORMAT`         |                                                                              |                                       |
 | `PHP_XDEBUG_IDEKEY`                   |                                                                              |                                       |
 | `PHP_XDEBUG_LOG_LEVEL`                |                                                                              | `3`                                   |
 | `PHP_XDEBUG_MAX_NESTING_LEVEL`        |                                                                              | `256`                                 |
