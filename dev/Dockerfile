@@ -14,6 +14,7 @@ RUN set -ex; \
     apk add --no-cache git openssh-client patch; \
     echo -e "Host *\n  StrictHostKeyChecking accept-new" > /etc/ssh/ssh_config; \
     # Xdebug
+    apk add --no-cache linux-headers; \
     apk add --no-cache --virtual .build autoconf g++ make; \
     pecl install xdebug; \
     docker-php-ext-enable xdebug; \
