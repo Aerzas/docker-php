@@ -6,7 +6,7 @@ on:
       - '*.*.*'
 
 env: 
-  COMPOSER_VERSION: 2.4.4
+  COMPOSER_VERSION: 2.5.1
   DRUSH_LAUNCHER_VERSION: 0.10.1
 
 jobs:
