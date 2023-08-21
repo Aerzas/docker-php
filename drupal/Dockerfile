@@ -4,7 +4,6 @@ FROM ${BUILD_PHP_IMAGE}
 
 USER root
 
-ARG DRUSH_LAUNCHER_VERSION
 ARG BUILD_DEV='false'
 
 RUN set -ex; \
@@ -21,10 +20,6 @@ RUN set -ex; \
         --with-jpeg; \
     NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1); \
     docker-php-ext-install -j${NPROC} bcmath gd soap zip; \
-    # Install Drush launcher
-    wget -O /tmp/drush.phar https://github.com/drush-ops/drush-launcher/releases/download/${DRUSH_LAUNCHER_VERSION}/drush.phar; \
-    chmod +x /tmp/drush.phar; \
-    mv /tmp/drush.phar /usr/local/bin/drush; \
     # Remove build dependencies
     apk del .build
 
