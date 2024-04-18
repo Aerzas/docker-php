@@ -16,10 +16,13 @@ jobs:
         include:
           -
             php-version: 8.1
-            php-image: php:8.1.27-fpm-alpine3.19
+            php-image: php:8.1.28-fpm-alpine3.19
           -
             php-version: 8.2
-            php-image: php:8.2.14-fpm-alpine3.19
+            php-image: php:8.2.18-fpm-alpine3.19
+          -
+            php-version: 8.3
+            php-image: php:8.3.6-fpm-alpine3.19
     steps:
       -
         name: Checkout
