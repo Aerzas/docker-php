@@ -84,3 +84,24 @@ jobs:
             BUILD_DEV=true
           push: true
           tags: aerzas/php:${{ matrix.php-version }}-latest-drupal-dev,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-drupal-dev
+      -
+        name: Build ${{ matrix.php-version }}-wordpress
+        uses: docker/build-push-action@v5
+        with:
+          context: ./wordpress
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            BUILD_PHP_IMAGE=aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}
+          push: true
+          tags: aerzas/php:${{ matrix.php-version }}-latest-wordpress,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-wordpress
+      -
+        name: Build ${{ matrix.php-version }}-wordpress-dev
+        uses: docker/build-push-action@v5
+        with:
+          context: ./wordpress
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            BUILD_PHP_IMAGE=aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-dev
+            BUILD_DEV=true
+          push: true
+          tags: aerzas/php:${{ matrix.php-version }}-latest-wordpress-dev,aerzas/php:${{ matrix.php-version }}-${{ github.ref_name }}-wordpress-dev
