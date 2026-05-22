@@ -7,10 +7,7 @@ ENV APP_ROOT="/var/www/html" \
     PHP_FPM_CONF_DIR="/usr/local/etc/php-fpm.d"
 
 RUN set -ex; \
-    # Install OPcache
-    docker-php-ext-configure opcache --enable-opcache; \
-    docker-php-ext-install opcache; \
-    # Instal PHPRedis
+    # Install PHPRedis
     apk add --no-cache --virtual .build autoconf g++ make; \
     pecl install redis; \
     docker-php-ext-enable redis; \
