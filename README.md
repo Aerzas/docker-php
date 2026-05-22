@@ -93,6 +93,9 @@ their environment variables automatically replaced.
 | **Composer (dev only)**               |                                                                              |                                       |
 | `COMPOSER_CACHE_DIR`                  |                                                                              | `/tmp`                                |
 | `COMPOSER_MEMORY_LIMIT`               |                                                                              | `256M`                                |
+| **NSS wrapper (dev only)**            |                                                                              |                                       |
+| `NSS_WRAPPER_GROUP`                   |                                                                              | `/tmp/group`                          |
+| `NSS_WRAPPER_PASSWD`                  |                                                                              | `/tmp/passwd`                         |
 | **Xdebug (dev only)**                 |                                                                              |                                       |
 | `PHP_XDEBUG_CLIENT_DISCOVERY_HEADER`  |                                                                              |                                       |
 | `PHP_XDEBUG_CLIENT_HOST`              |                                                                              | `localhost`                           |
@@ -108,4 +111,5 @@ their environment variables automatically replaced.
 | `PHP_XDEBUG_TRIGGER_VALUE`            |                                                                              |                                       |
 | **User (dev only)**                   |                                                                              |                                       |
 | `USER_HOME`                           |                                                                              | `/tmp`                                |
+| `USER_GROUP`                          |                                                                              | `docker`                              |
 | `USER_NAME`                           |                                                                              | `docker`                              |

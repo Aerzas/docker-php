@@ -6,6 +6,9 @@ USER root
 
 ARG COMPOSER_VERSION
 
+ENV NSS_WRAPPER_GROUP=/tmp/group \
+    NSS_WRAPPER_PASSWD=/tmp/passwd
+
 RUN set -ex; \
     # Composer
     mkdir -p /.composer; \
@@ -19,10 +22,14 @@ RUN set -ex; \
     pecl install xdebug; \
     docker-php-ext-enable xdebug; \
     apk del .build; \
-    # Replace this hack with NSS wrapper once accepted
-    # see https://bugs.alpinelinux.org/issues/6710
-    chgrp 0 /etc/passwd; \
-    chmod g+rwX /etc/passwd
+    # NSS wrapper
+    apk add --no-cache nss_wrapper; \
+    touch \
+      "${NSS_WRAPPER_GROUP}" \
+      "${NSS_WRAPPER_PASSWD}"; \
+    chmod u+rw,g+rw,o+rw \
+      "${NSS_WRAPPER_GROUP}" \
+      "${NSS_WRAPPER_PASSWD}"
 
 ENV COMPOSER_CACHE_DIR=/tmp \
     COMPOSER_MEMORY_LIMIT=256M \
@@ -43,6 +50,7 @@ ENV COMPOSER_CACHE_DIR=/tmp \
     PHP_XDEBUG_START_WITH_REQUEST=default \
     PHP_XDEBUG_TRIGGER_VALUE='' \
     USER_HOME=/tmp \
+    USER_GROUP=docker \
     USER_NAME=docker
 
 USER 1001
