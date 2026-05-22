@@ -6,7 +6,7 @@ on:
       - '*.*.*'
 
 env: 
-  COMPOSER_VERSION: 2.8.8
+  COMPOSER_VERSION: 2.9.8
 
 jobs:
   build:
