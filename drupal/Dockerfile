@@ -12,7 +12,7 @@ RUN set -ex; \
     apk add --no-cache freetype libpng libjpeg-turbo libwebp-dev libxml2-dev libzip-dev zip; \
     # Dev dependencies
     if [ "${BUILD_DEV}" = 'true' ]; then \
-        apk add --no-cache mariadb-client rsync; \
+        apk add --no-cache mariadb-client; \
     fi; \
     # Install BCMath, GD, SOAP, and ZIP
     docker-php-ext-configure gd \

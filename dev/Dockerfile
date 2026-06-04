@@ -14,8 +14,8 @@ RUN set -ex; \
     # Composer
     mkdir -p /.composer; \
     wget -qO- https://getcomposer.org/installer | php -- --version="${COMPOSER_VERSION}" --install-dir=/usr/local/bin --filename=composer; \
-    # Git, OpenSSH client and patch
-    apk add --no-cache git openssh-client patch; \
+    # Git, OpenSSH client, patch and rsync
+    apk add --no-cache git openssh-client patch rsync; \
     echo -e "Host *\n  StrictHostKeyChecking accept-new" > /etc/ssh/ssh_config; \
     # Xdebug
     apk add --no-cache linux-headers; \
