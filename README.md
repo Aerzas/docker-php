@@ -7,7 +7,6 @@ Docker Hub image: [https://hub.docker.com/r/aerzas/php](https://hub.docker.com/r
 ## Docker compose example
 
 ```yaml
-version: '3.5'
 services:
     php:
         image: aerzas/php:8.5-latest
@@ -94,6 +93,7 @@ their environment variables automatically replaced.
 | `COMPOSER_CACHE_DIR`                  |                                                                              | `/tmp`                                |
 | `COMPOSER_MEMORY_LIMIT`               |                                                                              | `256M`                                |
 | **NSS wrapper (dev only)**            |                                                                              |                                       |
+| `LD_PRELOAD`                          |                                                                              | `libnss_wrapper.so`                   |
 | `NSS_WRAPPER_GROUP`                   |                                                                              | `/tmp/group`                          |
 | `NSS_WRAPPER_PASSWD`                  |                                                                              | `/tmp/passwd`                         |
 | **Xdebug (dev only)**                 |                                                                              |                                       |

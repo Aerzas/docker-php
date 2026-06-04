@@ -6,7 +6,8 @@ USER root
 
 ARG COMPOSER_VERSION
 
-ENV NSS_WRAPPER_GROUP=/tmp/group \
+ENV LD_PRELOAD=libnss_wrapper.so \
+    NSS_WRAPPER_GROUP=/tmp/group \
     NSS_WRAPPER_PASSWD=/tmp/passwd
 
 RUN set -ex; \
