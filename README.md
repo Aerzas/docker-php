@@ -52,7 +52,6 @@ their environment variables automatically replaced.
 | `PHP_UPLOAD_MAX_FILESIZE`             | `8M`                                                                         | `8M`                                  |
 | **Assertions**                        |                                                                              |                                       |
 | `PHP_ZEND_ASSERTIONS`                 | `0`                                                                          | `0`                                   |
-| `PHP_ASSERT_ACTIVE`                   | `0`                                                                          | `0`                                   |
 | **Date**                              |                                                                              |                                       |
 | `PHP_DATE_TIMEZONE`                   | `UTC`                                                                        | `UTC`                                 |
 | **Mail**                              |                                                                              |                                       |
